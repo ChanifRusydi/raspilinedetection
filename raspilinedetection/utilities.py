@@ -15,3 +15,9 @@ def thresholding(image):
     ret, thresh = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
     return thresh
 
+def warpImage(img,points,widht,height):
+    """
+    This function is used to warp the image to get the lane line.
+    """
+    src = np.float32(points)
+    dst = np.float32([(0, height), (0, 0), (widht, 0), (widht, height)])
